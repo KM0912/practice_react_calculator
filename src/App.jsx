@@ -1,26 +1,27 @@
 import "./styles.css";
+import { Button } from "./components/Button";
 
-export default function App() {
+export const App = () => {
   return (
     <div>
       <div className="title">SimpleCalculator</div>
       <div className="calculator">
         <div className="display"></div>
-        <div className="btn">7</div>
-        <div className="btn">8</div>
-        <div className="btn">9</div>
+        <Button>7</Button>
+        <Button>8</Button>
+        <Button>9</Button>
         <div className="operator">C</div>
-        <div className="btn">4</div>
-        <div className="btn">5</div>
-        <div className="btn">6</div>
+        <Button>4</Button>
+        <Button>5</Button>
+        <Button>6</Button>
         <div className="operator">-</div>
-        <div className="btn">1</div>
-        <div className="btn">2</div>
-        <div className="btn">3</div>
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
         <div className="operator">+</div>
         <div className="btn zero">0</div>
         <div className="operator">=</div>
       </div>
     </div>
   );
-}
+};
