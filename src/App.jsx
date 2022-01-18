@@ -5,12 +5,22 @@ import { useState } from "react";
 
 export const App = () => {
   const [inputVal, setInputVal] = useState("");
+  const [preVal, setPreVal] = useState("");
   const onClickVal = (val) => {
     const newInputVal = inputVal + val;
     setInputVal(newInputVal);
   };
   const onClickClear = () => {
     setInputVal("");
+  };
+  const onClickMinus = () => {
+    setPreVal(inputVal);
+    setInputVal("");
+  };
+  const onClickEqual = () => {
+    const answer = parseInt(preVal, 10) - parseInt(inputVal, 10);
+
+    setInputVal(answer);
   };
   return (
     <div>
@@ -38,7 +48,9 @@ export const App = () => {
         <ValButton className="btn" onClick={onClickVal}>
           6
         </ValButton>
-        <OperatorButton className="operator">-</OperatorButton>
+        <OperatorButton className="operator" onClick={onClickMinus}>
+          -
+        </OperatorButton>
         <ValButton className="btn" onClick={onClickVal}>
           1
         </ValButton>
@@ -50,7 +62,9 @@ export const App = () => {
         </ValButton>
         <OperatorButton className="operator">+</OperatorButton>
         <ValButton className="btn zero">0</ValButton>
-        <OperatorButton className="operator">=</OperatorButton>
+        <OperatorButton className="operator" onClick={onClickEqual}>
+          =
+        </OperatorButton>
       </div>
     </div>
   );
