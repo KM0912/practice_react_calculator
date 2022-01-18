@@ -9,6 +9,9 @@ export const App = () => {
     const newInputVal = inputVal + val;
     setInputVal(newInputVal);
   };
+  const onClickClear = () => {
+    setInputVal("");
+  };
   return (
     <div>
       <div className="title">SimpleCalculator</div>
@@ -23,7 +26,9 @@ export const App = () => {
         <ValButton className="btn" onClick={onClickVal}>
           9
         </ValButton>
-        <OperatorButton className="operator">C</OperatorButton>
+        <OperatorButton className="operator" onClick={onClickClear}>
+          C
+        </OperatorButton>
         <ValButton className="btn" onClick={onClickVal}>
           4
         </ValButton>
