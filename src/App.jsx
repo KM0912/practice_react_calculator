@@ -1,26 +1,51 @@
 import "./styles.css";
-import { Button } from "./components/Button";
+import { ValButton } from "./components/ValButton";
+import { OperatorButton } from "./components/OperatorButton";
+import { useState } from "react";
 
 export const App = () => {
+  const [inputVal, setInputVal] = useState("");
+  const onClickVal = (val) => {
+    const newInputVal = inputVal + val;
+    setInputVal(newInputVal);
+  };
   return (
     <div>
       <div className="title">SimpleCalculator</div>
       <div className="calculator">
-        <div className="display"></div>
-        <Button className="btn">7</Button>
-        <Button className="btn">8</Button>
-        <Button className="btn">9</Button>
-        <Button className="operator">C</Button>
-        <Button className="btn">4</Button>
-        <Button className="btn">5</Button>
-        <Button className="btn">6</Button>
-        <Button className="operator">-</Button>
-        <Button className="btn">1</Button>
-        <Button className="btn">2</Button>
-        <Button className="btn">3</Button>
-        <Button className="operator">+</Button>
-        <Button className="btn zero">0</Button>
-        <Button className="operator">=</Button>
+        <div className="display">{inputVal}</div>
+        <ValButton className="btn" onClick={onClickVal}>
+          7
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          8
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          9
+        </ValButton>
+        <OperatorButton className="operator">C</OperatorButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          4
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          5
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          6
+        </ValButton>
+        <OperatorButton className="operator">-</OperatorButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          1
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          2
+        </ValButton>
+        <ValButton className="btn" onClick={onClickVal}>
+          3
+        </ValButton>
+        <OperatorButton className="operator">+</OperatorButton>
+        <ValButton className="btn zero">0</ValButton>
+        <OperatorButton className="operator">=</OperatorButton>
       </div>
     </div>
   );
